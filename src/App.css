@@ -1,0 +1,543 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Open+Sans:wght@300;400;500;600&family=Poppins:wght@200;300;400;500;600;800;900&family=Roboto:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Noto Sans', 'Open Sans', 'Roboto', sans-serif;
+}
+
+body{
+  background: #FAFAFC;
+}
+
+
+.searchform{
+  /* margin-left: 20px; */
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  padding: 1px;
+  gap: 1px;
+  border: none;
+}
+
+.searchform input{
+  width: 100%;
+  border-radius: 5px;
+  height: 45px;
+  padding-left: 10px;
+  background: #fff;
+  border: none;
+  outline: none;
+}
+
+.notfound-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notfound-container .container h1{
+  font-size: 100px;
+}
+
+.notfound-container .container p{
+  font-size: 50px;
+}
+
+nav .right .link{
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+
+/************ Header Carousel **************/
+
+#carouselExample img{
+  height: 70vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*************** About Us ********************/
+
+.aboutus{
+  margin-top: 10px;
+}
+
+.aboutus .container{
+  padding: 5px 60px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.aboutus .container img{
+  height: 400px;
+  width: 500px;
+  border-radius: 5px;
+}
+
+
+/******************* Footer Page ***************/
+
+footer{
+  margin-top: 20px;
+  background: #404050;
+}
+
+footer button{
+  background: #2a2a3d;
+  color: #fff;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 1%;
+}
+
+footer button:hover{
+  background: #21212c;
+}
+
+.footer{
+  padding: 1% 12%;
+}
+
+.footer .container{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer .container .get,
+.footer .container .connect,
+.footer .container .help{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer .container h5{
+  color: #fff;
+}
+
+.footer .container .link{
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.footer .container .link:hover{
+  text-decoration: underline;
+}
+
+footer .footer-middle{
+  border-top: 1px solid #2a2a3d;
+  padding: 2% 0;
+  border-bottom: 1px solid #2a2a3d;
+}
+
+footer .footer-middle center{
+  color: #fff;
+}
+
+.footer-bottom{
+  padding: 2% 0;
+  background: #21212c;
+  color: #fff;
+}
+
+.footer-bottom .link{
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+  margin: 15px;
+}
+
+.footer-bottom .link:hover{
+  text-decoration: underline;
+}
+
+.footer-bottom p{
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+
+/******************** Section Category ****************/
+
+.section-category{
+  padding: 1%;
+  text-align: center;
+}
+
+.section-category img{
+  width: 100%;
+  height: 100%;
+}
+
+
+/***************** Section Brands *******************/
+
+.section-brands{
+  margin-top: 10px;
+  padding: 2%;
+}
+
+.section-brands img{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/****************** Contact Us ********************/
+
+.contactus{
+  margin-top: 10px;
+}
+
+.contactus .container{
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+}
+
+.contactus .container .left{
+  width: 50%;
+}
+
+.contactus .container .right{
+  width: 50%;
+}
+
+.contactus .container .right input{
+  height: 45px;
+}
+
+
+/************** Login Page ******************/
+
+.login-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 5px;
+  width: 550px;
+}
+.login-container .container{
+  padding: 2% 0;
+}
+.login-container .container form{
+  margin-top: 20px;
+  padding: 0% 3%;
+}
+
+.login-container .container form input{
+  height: 50px;
+}
+
+.login-container .container form button{
+  width: 100%;
+  margin-top: 15px;
+  padding: 2%;
+}
+
+.login-container .container form p{
+  margin-top: 10px;
+  text-align: right;
+}
+
+
+
+/*********** Admin Add Products *******************/
+
+.admin-add-products{
+  margin-top: 10px;
+}
+
+.admin-add-products .container form{
+  margin-top: 20px;
+}
+
+.admin-add-products .container form input{
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.admin-add-products .container form select{
+  height: 50px;
+}
+
+.admin-add-products .container form button{
+  width: 100%;
+  padding: 1%;
+}
+
+/************** Admin Categories ******************/
+
+.admin-categories{
+  margin-top: 10px;
+}
+
+.admin-categories .container form{
+  margin-top: 10px;
+}
+
+.admin-categories .container form input{
+  height: 50px;
+}
+
+.admin-categories .container form button{
+  width: 100%;
+  padding: 1%;
+  margin-top: 10px;
+}
+
+.admin-categories .container table{
+  margin-top: 30px;
+}
+
+/********************* Admin Order Transactions ************************/
+
+.admin-transactions-container{
+  padding: 1% 2%;
+}
+
+
+/***************** Admin Edit Transactions ***************************/
+
+.admin-edit-transaction{
+  padding: 1% 5%;
+}
+
+
+/************** User Profile Page ******************/
+
+.user-profile-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 1% 5%;
+}
+
+.user-profile-container .left-container{
+  width: 25%;
+}
+
+.user-profile-container .left-container .container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-profile-container .left-container .container .card-box-orders{
+  background: #fff;
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.left-container .container .card-box-orders .orders{
+  display: flex;
+  gap: 10px;
+  padding-top: 23px;
+  padding-left: 20px;
+  height: 70px;
+  text-decoration: none;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
+.card-box-orders .orders .icon{
+  font-size: 30px;
+}
+
+.left-container .container .card-box-orders .orders p{
+  width: 100%;
+}
+
+nav{
+  border-bottom: 1px solid #ccc;
+}
+
+nav .top{
+  flex-direction: row;
+  height: 70px;
+  display: flex;
+  gap: 10px;
+  padding-left: 20px;
+}
+
+nav .top p{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.top .person-icon{
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+
+nav li{
+  list-style: none;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+
+nav li .link{
+  text-decoration: none;
+  color: #000;
+}
+
+.logout{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 60px;
+  text-decoration: none;
+  padding-left: 20px;
+}
+
+.logout .icon{
+  font-size: 30px;
+}
+
+.logout p{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-top: 15px;
+}
+
+
+/*********************** User Address ******************/
+
+.user-address-container{
+  padding: 1% 2%;
+}
+
+
+/**************** User Home Page ******************/
+
+.user-homepage{
+  padding: 1% 2%;
+}
+
+
+/******************** User Product Details Page ***************/
+
+.userproduct-details{
+  padding: 1% 2%;
+}
+
+.userproduct-details .details .rating{
+  background: green;
+  padding: 5px;
+  width: 6%;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.userproduct-details .container .details .rating span{
+  font-size: 20px;
+}
+
+.userproduct-details .details .offers{
+  display: flex;
+  gap: 10px;
+  padding-top: 1%;
+}
+
+.userproduct-details .container .details .offers span{
+  color: green;
+}
+
+/********************** User Cart Page ******************/
+
+ .usercart-container{
+  padding: 1% 2%;
+}
+
+/******************** User Place Order Container *******************/
+
+.user-place-order-container{
+  padding: 1% 2%;
+}
+
+/********************* Success Page *************************/
+
+.success-container{
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.success-container .container .icon{
+  background: #008000;
+  font-size: 150px;
+  color: #fff;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.success-container .container h3,
+.success-container .container h6,
+.success-container .container p{
+  margin-bottom: 20px;
+}
+
+/********************* Failure Page *************************/
+
+.failure-container{
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.failure-container .container .icon{
+  background: crimson;
+  font-size: 150px;
+  color: #fff;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.failure-container .container h3,
+.failure-container .container h6,
+.failure-container .container p{
+  margin-bottom: 20px;
+}
+
+
+/********************* User Order Transactions ************************/
+
+.user-transactions-container{
+  padding: 1% 2%;
+}
+
+
+/****************** User Order Info ************************/
+
+.user-order-info{
+  padding: 1% 5%;
+}
