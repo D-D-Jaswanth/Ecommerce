@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
+import { BACKEND_URL } from './helper'
 
 function Register() {
     const [data, setData] = useState({
@@ -19,7 +20,7 @@ function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('http://localhost:5000/register', data)
+        await axios.post(`${BACKEND_URL}/register`, data)
             .then(response => {
                 alert(response.data)
                 navigate('/login')
@@ -33,7 +34,7 @@ function Register() {
             <div className='login-container'>
                 <div className='container'>
                     <center><h2>Register</h2></center>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} autoComplete='off'>
                         <div class="mb-3">
                             <input type="text" name='fullname' onChange={handleChange} class="form-control" placeholder="Enter Full Name" />
                         </div>

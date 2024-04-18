@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { store } from '../App'
+import { BACKEND_URL } from './helper'
 
 function Login() {
 
@@ -20,7 +21,7 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('http://localhost:5000/login', data)
+        await axios.post(`${BACKEND_URL}/login`, data)
             .then(res => {
                 setToken(res.data.token)
                 localStorage.setItem("users", JSON.stringify(res.data))
@@ -40,7 +41,7 @@ function Login() {
             <div className='login-container'>
                 <div className='container'>
                     <center><h2>Login</h2></center>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} autoComplete='off'>
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Email</label>
                             <input type="email" onChange={handleChange} name='email' class="form-control" id="formGroupExampleInput" placeholder="Email@gmail.com" />
