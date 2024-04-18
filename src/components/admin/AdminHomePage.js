@@ -7,6 +7,7 @@ import { Radio } from 'antd'
 import { Price } from '../users/Price'
 import { store } from '../../App'
 import { useNavigate } from 'react-router-dom'
+import { BACKEND_URL } from '../helper'
 
 function AdminHomePage() {
 
@@ -24,7 +25,7 @@ function AdminHomePage() {
     const [search, setSearch] = useState('')
 
     useEffect(() => {
-        axios.get('http://localhost:5000/adminprofile', {
+        axios.get(`${BACKEND_URL}/adminprofile`, {
             headers: {
                 'x-token': token
             }
@@ -45,7 +46,7 @@ function AdminHomePage() {
 
     useEffect(() => {
         if (!checked.length || !radio.length) {
-            axios.get('http://localhost:5000/adminhomepage')
+            axios.get(`${BACKEND_URL}/adminhomepage`)
                 .then(products => {
                     setProducts(products.data)
                 })
@@ -56,7 +57,7 @@ function AdminHomePage() {
     }, [checked.length, radio.length])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/admincategories')
+        axios.get(`${BACKEND_URL}/admincategories`)
             .then(cat => {
                 setCat(cat.data)
             })
@@ -82,7 +83,7 @@ function AdminHomePage() {
 
     const filterProduct = async () => {
         try {
-            const { data } = await axios.post('http://localhost:5000/adminhomepage', { checked, radio })
+            const { data } = await axios.post(`${BACKEND_URL}/adminhomepage`, { checked, radio })
             setProducts(data?.products)
         } catch (error) {
             console.log(error)

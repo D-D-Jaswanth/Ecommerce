@@ -20,7 +20,7 @@ function AdminCategories() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(categories)
-        await axios.post('http://localhost:5000/admincategories', categories)
+        await axios.post(`${BACKEND_URL}/admincategories`, categories)
             .then(res => {
                 alert(res.data)
                 window.location.reload()
@@ -29,9 +29,9 @@ function AdminCategories() {
                 console.log(err)
             })
     }
-
+    
     const handleDelete = (id) => {
-        axios.delete('http://localhost:5000/admincategories/' + id)
+        axios.delete(`${BACKEND_URL}/admincategories/` + id)
             .then(res => {
                 window.location.reload()
             })
@@ -41,7 +41,7 @@ function AdminCategories() {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:5000/admincategories')
+        axios.get(`${BACKEND_URL}/admincategories`)
             .then(cat => {
                 setCat(cat.data)
             })

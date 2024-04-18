@@ -3,6 +3,7 @@ import UserNavbar from '../../screens/UserNavbar'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import moment from 'moment'
+import { BACKEND_URL } from '../helper'
 
 function UserOrderInfo() {
     const { id } = useParams()
@@ -10,7 +11,7 @@ function UserOrderInfo() {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/orderinfo/' + id)
+        axios.get(`${BACKEND_URL}/orderinfo/` + id)
             .then(orders => {
                 setOrders(orders.data)
             })

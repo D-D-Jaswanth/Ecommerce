@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
+import { BACKEND_URL } from '../helper'
 
 function AdminRegister() {
 
@@ -17,7 +18,7 @@ function AdminRegister() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/adminregister', data)
+        await axios.post(`${BACKEND_URL}/adminregister`, data)
         .then(res => {
             alert(res.data)
             navigate('/adminlogin')
@@ -33,7 +34,7 @@ function AdminRegister() {
             <div className='login-container'>
                 <div className='container'>
                     <center><h2>Register</h2></center>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} autoComplete='off'>
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Email</label>
                             <input type="email" onChange={handleChange} name='email' class="form-control" id="formGroupExampleInput" placeholder="Email@gmail.com" />

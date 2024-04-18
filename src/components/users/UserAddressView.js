@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios';
 import { store } from '../../App';
 import { Link } from 'react-router-dom';
+import { BACKEND_URL } from '../helper';
 
 function UserAddressView() {
 
@@ -12,7 +13,7 @@ function UserAddressView() {
     const [address, setAddress] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/userprofile', {
+        axios.get(`${BACKEND_URL}/userprofile`, {
             headers: {
                 'x-token': token
             }
@@ -26,7 +27,7 @@ function UserAddressView() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/useraddressview')
+        axios.get(`${BACKEND_URL}/useraddressview`)
             .then((address) => {
                 setAddress(address.data)
             })
@@ -36,7 +37,7 @@ function UserAddressView() {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete('http://localhost:5000/useraddressview/' + id)
+        axios.delete(`${BACKEND_URL}/useraddressview/` + id)
             .then(res => {
                 window.location.reload()
             })

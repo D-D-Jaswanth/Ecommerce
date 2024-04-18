@@ -4,6 +4,7 @@ import UserNavbar from '../../screens/UserNavbar'
 import { Link, useNavigate } from 'react-router-dom'
 import { store } from '../../App'
 import moment from 'moment'
+import { BACKEND_URL } from '../helper'
 
 function UserTransactions() {
 
@@ -18,7 +19,7 @@ function UserTransactions() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('http://localhost:5000/userprofile', {
+        axios.get(`${BACKEND_URL}/userprofile`, {
             headers: {
                 'x-token': token
             }
@@ -32,7 +33,7 @@ function UserTransactions() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/userorders')
+        axios.get(`${BACKEND_URL}/userorders`)
             .then(orders => {
                 setOrders(orders.data)
             })

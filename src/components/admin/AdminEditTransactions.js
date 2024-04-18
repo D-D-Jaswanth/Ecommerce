@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
+import { BACKEND_URL } from '../helper'
 
 function AdminEditTransactions() {
     const { id } = useParams()
@@ -22,7 +23,7 @@ function AdminEditTransactions() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:5000/adminupdatetrans/' + id, orders)
+        axios.put(`${BACKEND_URL}/adminupdatetrans/` + id, orders)
             .then(orders => {
                 setOrders(orders.data)
                 alert('Order Updated Successfully')
@@ -34,7 +35,7 @@ function AdminEditTransactions() {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:5000/adminedittrans/' + id)
+        axios.get(`${BACKEND_URL}/adminedittrans/` + id)
             .then(orders => {
                 setOrders(orders.data)
             })

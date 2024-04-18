@@ -4,6 +4,7 @@ import axios from 'axios'
 import { store } from '../../App'
 import { Link, useNavigate } from 'react-router-dom'
 import UserAddressView from './UserAddressView'
+import { BACKEND_URL } from '../helper'
 
 function UserAddress() {
 
@@ -22,7 +23,7 @@ function UserAddress() {
   const [token, setToken] = useContext(store)
 
   useEffect(() => {
-    axios.get('http://localhost:5000/useraddress', {
+    axios.get(`${BACKEND_URL}/useraddress`, {
       headers: {
         'x-token': token
       }
@@ -46,7 +47,7 @@ function UserAddress() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/useraddress', { address, data })
+      await axios.post(`${BACKEND_URL}/useraddress`, { address, data })
       alert('Your Address is Added Successfully')
       window.location.reload()
     }
@@ -67,7 +68,7 @@ function UserAddress() {
           <div className='row row-cols-2'>
             <div class="card col-6 col-md-5">
               <h5>New Address</h5>
-              <form className='row p-2' onSubmit={handleSubmit}>
+              <form className='row p-2' onSubmit={handleSubmit} autoComplete='off'>
                 <div class="col-md-6 pb-2">
                   <label for="Name" class="form-label">Name</label>
                   <input type="text" name='name' onChange={handleChange} placeholder='Name' class="form-control" id="Name" />

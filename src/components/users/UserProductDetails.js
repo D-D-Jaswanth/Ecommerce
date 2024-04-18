@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import UserNavbar from '../../screens/UserNavbar'
+import { BACKEND_URL } from '../helper'
 
 function UserProductDetails() {
 
@@ -12,7 +13,7 @@ function UserProductDetails() {
     const [rating, setRating] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/userproductdetails/' + id)
+        axios.get(`${BACKEND_URL}/userproductdetails/` + id)
             .then(products => {
                 setProducts(products.data)
             })
@@ -22,7 +23,7 @@ function UserProductDetails() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/userproductdetails')
+        axios.get(`${BACKEND_URL}/userproductdetails`)
             .then(rating => {
                 setRating(rating.data)
             })

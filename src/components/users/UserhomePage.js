@@ -7,6 +7,7 @@ import { useCart } from '../../context/cart'
 import Checkbox from 'antd/es/checkbox/Checkbox'
 import { Price } from './Price'
 import { Radio } from 'antd'
+import { BACKEND_URL } from '../helper'
 
 function UserhomePage() {
 
@@ -26,7 +27,7 @@ function UserhomePage() {
 
     useEffect(() => {
         if (!checked.length || !radio.length) {
-            axios.get('http://localhost:5000/userhomepage')
+            axios.get(`${BACKEND_URL}/userhomepage`)
                 .then(products => {
                     setProducts(products.data)
                 })
@@ -37,7 +38,7 @@ function UserhomePage() {
     }, [checked.length, radio.length])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/admincategories')
+        axios.get(`${BACKEND_URL}/admincategories`)
             .then(cat => {
                 setCat(cat.data)
             })
@@ -47,7 +48,7 @@ function UserhomePage() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/userhomepage', {
+        axios.get(`${BACKEND_URL}/userhomepage`, {
             headers: {
                 'x-token': token
             }
@@ -79,7 +80,7 @@ function UserhomePage() {
 
     const filterProduct = async () => {
         try {
-            const { data } = await axios.post('http://localhost:5000/userhomepage', { checked, radio })
+            const { data } = await axios.post(`${BACKEND_URL}/userhomepage`, { checked, radio })
             setProducts(data?.products)
         } catch (error) {
             console.log(error)

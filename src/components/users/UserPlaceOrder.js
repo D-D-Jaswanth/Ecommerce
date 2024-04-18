@@ -5,6 +5,7 @@ import axios from 'axios'
 import { store } from '../../App'
 import { Link, useNavigate } from 'react-router-dom'
 import { Radio } from 'antd'
+import { BACKEND_URL } from '../helper'
 
 function UserPlaceOrder() {
 
@@ -37,7 +38,7 @@ function UserPlaceOrder() {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:5000/placeorder', {
+        axios.get(`${BACKEND_URL}/placeorder`, {
             headers: {
                 'x-token': token
             }
@@ -51,7 +52,7 @@ function UserPlaceOrder() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/useraddressview')
+        axios.get(`${BACKEND_URL}/useraddressview`)
             .then(address => {
                 setAddress(address.data)
             })
@@ -62,7 +63,7 @@ function UserPlaceOrder() {
 
     const handlePayment = async (req, res) => {
         try {
-            await axios.post('http://localhost:5000/placeorder', { cart, data, address })
+            await axios.post(`${BACKEND_URL}/placeorder`, { cart, data, address })
             localStorage.removeItem('cart')
             setCart([])
             navigate('/success')

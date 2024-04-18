@@ -3,6 +3,7 @@ import axios from 'axios'
 import AdminNavbar from '../../screens/AdminNavbar'
 import { useNavigate } from 'react-router-dom'
 import { store } from '../../App'
+import { BACKEND_URL } from '../helper'
 
 function AdminProfile() {
 
@@ -11,7 +12,7 @@ function AdminProfile() {
     const [token, setToken] = useContext(store)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/adminprofile', {
+        axios.get(`${BACKEND_URL}/adminprofile`, {
             headers: {
                 'x-token': token
             }

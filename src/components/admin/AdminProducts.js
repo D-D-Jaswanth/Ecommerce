@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AdminNavbar from '../../screens/AdminNavbar'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { BACKEND_URL } from '../helper'
 
 function AdminProducts() {
 
@@ -10,7 +11,7 @@ function AdminProducts() {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    axios.get('http://localhost:5000/adminproducts')
+    axios.get(`${BACKEND_URL}/adminproducts`)
       .then(products => {
         setProducts(products.data)
       })

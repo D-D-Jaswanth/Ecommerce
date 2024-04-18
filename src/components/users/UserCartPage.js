@@ -4,6 +4,7 @@ import { store } from '../../App'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import UserNavbar from '../../screens/UserNavbar'
+import { BACKEND_URL } from '../helper'
 
 function UserCartPage() {
 
@@ -47,7 +48,7 @@ function UserCartPage() {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:5000/usercart', {
+        axios.get(`${BACKEND_URL}/usercart`, {
             headers: {
                 'x-token': token
             }

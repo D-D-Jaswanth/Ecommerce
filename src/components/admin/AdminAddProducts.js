@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AdminNavbar from '../../screens/AdminNavbar'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { BACKEND_URL } from '../helper'
 
 function AdminAddProducts() {
 
@@ -37,7 +38,7 @@ function AdminAddProducts() {
         formData.append('category', category)
         formData.append('images', images)
 
-        const result = await axios.post('http://localhost:5000/adminaddproducts', formData,
+        const result = await axios.post(`${BACKEND_URL}/adminaddproducts`, formData,
             {
                 headers: {
                     "contentType": "multipart/form-data"
@@ -52,7 +53,7 @@ function AdminAddProducts() {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:5000/admincategories')
+        axios.get(`${BACKEND_URL}/admincategories`)
             .then(cat => {
                 setCat(cat.data)
             })

@@ -21,7 +21,7 @@ app.listen(port, () => {
     console.log(`Server is listening on ${port}`)
 })
 
-mongoose.connect('mongodb://127.0.0.1:27017/ecommerce')
+mongoose.connect("mongodb+srv://loyolite182725:Jasu%40123@cluster0.s48x17q.mongodb.net/ecommerce")
     .then(res => {
         console.log('Connected to Database')
     })

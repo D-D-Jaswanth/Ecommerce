@@ -3,6 +3,7 @@ import axios from 'axios';
 import AdminNavbar from '../../screens/AdminNavbar'
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { BACKEND_URL } from '../helper';
 
 function AdminTransactions() {
 
@@ -11,7 +12,7 @@ function AdminTransactions() {
     const [search, setSearch] = useState('')
 
     useEffect(() => {
-        axios.get('http://localhost:5000/admintrans')
+        axios.get(`${BACKEND_URL}/admintrans`)
             .then(orders => {
                 setOrders(orders.data)
             })
@@ -60,7 +61,6 @@ function AdminTransactions() {
                                                         <td>{o?.status}</td>
                                                         <td>
                                                             <Link className='btn btn-danger' to={`/adminedittrans/${o?._id}`}>Edit</Link>
-                                                            {/* <Link className='btn btn-danger' to={`/adminedittrans/${o._id}`}>Edit</Link> */}
                                                         </td>
                                                     </tr>
                                                 </tbody>

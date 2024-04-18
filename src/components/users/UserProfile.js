@@ -4,6 +4,7 @@ import { store } from '../../App'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import DefaultImg from '../../images/default.png'
+import { BACKEND_URL } from '../helper'
 
 function UserProfile() {
 
@@ -12,7 +13,7 @@ function UserProfile() {
     const [token, setToken] = useContext(store)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/userprofile', {
+        axios.get(`${BACKEND_URL}/userprofile`, {
             headers: {
                 'x-token': token
             }

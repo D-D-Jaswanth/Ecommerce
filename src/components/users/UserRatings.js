@@ -3,6 +3,7 @@ import UserNavbar from '../../screens/UserNavbar'
 import { useParams, useNavigate } from 'react-router-dom'
 import { store } from '../../App'
 import axios from 'axios'
+import { BACKEND_URL } from '../helper'
 
 function UserRatings() {
 
@@ -23,7 +24,7 @@ function UserRatings() {
     })
 
     useEffect(() => {
-        axios.get('http://localhost:5000/userprofile', {
+        axios.get(`${BACKEND_URL}/userprofile`, {
             headers: {
                 'x-token': token
             }
@@ -37,7 +38,7 @@ function UserRatings() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/orderinfo/' + id)
+        axios.get(`${BACKEND_URL}/orderinfo/` + id)
             .then(orders => {
                 setOrders(orders.data)
             })
@@ -52,7 +53,7 @@ function UserRatings() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/userrating', { data, orders, rating })
+        await axios.post(`${BACKEND_URL}/userrating`, { data, orders, rating })
             .then(res => {
                 alert(res.data)
                 navigate('/userorders')
